@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: search # 程序名字
+  kafka: # 配置 kafka
+    consumer: # 配置消费者
+      group-id: lw # 消费者分组名称  # 从连接上以后的最新数据开始读取
+      enable-auto-commit: true # 自动提交 offset，顺序读取数据
+      bootstrap-servers: master:9092 # kafka 地址
+      auto-offset-reset: latest
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: master:9300
+server:
+  port: 8902 # 程序端口号
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka # 注册中心服务器的地址
+
